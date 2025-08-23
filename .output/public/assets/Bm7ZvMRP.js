@@ -1,1 +1,0 @@
-import{_ as n}from"./DlAUqK2U.js";import{x as o,z as t,y as s}from"./B6pWBjQY.js";const l={};function r(a,e){return s(),o("div",null,[...e[0]||(e[0]=[t("h1",null,"Welcome to the Nuxt 3 + Element Plus Sample",-1),t("p",null,"This is a simple demonstration of using Element Plus with Nuxt 3.",-1)])])}const u=n(l,[["render",r]]);export{u as default};
