@@ -20,9 +20,9 @@
       <el-tabs v-model="activeTab" @tab-click="onTabClick">
         <el-tab-pane label="Home" name="/" />
         <el-tab-pane label="GithubRepoTree" name="/repo/GithubRepoTree" />
-        <el-tab-pane label="Sample 1" name="/sample/page1" />
-        <el-tab-pane label="Sample 2" name="/sample/page2" />
-        <el-tab-pane label="Sample 3" name="/sample/page3" />
+        <el-tab-pane label="Chart.js-StackBarChart" name="/chart-js/stackbar-chart" />
+        <el-tab-pane label="Chart.js-PieChart" name="/chart-js/pie-chart" />
+        <el-tab-pane label="Chart.js-PolarAreaChart" name="/chart-js/polar-area-chart" />
       </el-tabs>
       <div style="padding: 0px">
         <NuxtPage />
@@ -42,13 +42,15 @@ const activeTab = ref(route.path);
 watch(
   () => route.path,
   (newPath) => {
-    // activeTab.value = newPath;
-  }
+    activeTab.value = newPath;
+  },
+  { immediate: true }
 );
 
 function onTabClick(tab: any) {
-  console.log(tab);
-  router.push(tab.props.name);
+  // 현재 페이지의 쿼리 파라미터를 다음 페이지로 전달
+  const currentQuery = route.query;
+  router.push({ path: tab.props.name, query: currentQuery });
 }
 </script>
 
