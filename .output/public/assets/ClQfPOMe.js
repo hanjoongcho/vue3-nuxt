@@ -1,0 +1,1 @@
+import{d as t,x as n,z as a,y as s}from"./B6pWBjQY.js";const r=t({__name:"page3",setup(l){return(p,e)=>(s(),n("div",null,[...e[0]||(e[0]=[a("h2",null,"Sample Page 3",-1),a("p",null,"This is the third sample page.",-1)])]))}});export{r as default};
