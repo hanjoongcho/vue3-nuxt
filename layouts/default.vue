@@ -1,22 +1,16 @@
 <template>
   <el-container>
     <!-- Top Horizontal Menu -->
-    <!-- <el-header
-      height="60px"
-      style="background: #f5f7fa; border-bottom: 1px solid #ebeef5; padding: 0"
-    >
-      <el-menu mode="horizontal" :default-active="$route.path" router style="border: none">
-        <el-menu-item index="/">Home</el-menu-item>
-        <el-sub-menu index="1">
-          <template #title>Sample Pages</template>
-          <el-menu-item index="/sample/page1">Sample Page 1</el-menu-item>
-          <el-menu-item index="/sample/page2">Sample Page 2</el-menu-item>
-          <el-menu-item index="/sample/page3">Sample Page 3</el-menu-item>
-        </el-sub-menu>
-      </el-menu>
-    </el-header> -->
-    <!-- Main Content with Routing Tabs -->
-    <el-main style="padding: 0">
+    <el-header style="border-bottom: 0px solid #ebeef5; padding: 0">
+      <div class="nav-desktop">
+        <!-- <el-menu mode="horizontal" :default-active="$route.path" router style="border: none">
+          <el-menu-item index="/">Home</el-menu-item>
+          <el-menu-item index="/repo/GithubRepoTree">GithubRepoTree</el-menu-item>
+          <el-menu-item index="/chart-js/stackbar-chart">Chart.js-StackBarChart</el-menu-item>
+          <el-menu-item index="/chart-js/pie-chart">Chart.js-PieChart</el-menu-item>
+          <el-menu-item index="/chart-js/polar-area-chart">Chart.js-PolarAreaChart</el-menu-item>
+        </el-menu> -->
+      </div>
       <el-tabs v-model="activeTab" @tab-click="onTabClick">
         <el-tab-pane label="Home" name="/" />
         <el-tab-pane label="GithubRepoTree" name="/repo/GithubRepoTree" />
@@ -24,10 +18,33 @@
         <el-tab-pane label="Chart.js-PieChart" name="/chart-js/pie-chart" />
         <el-tab-pane label="Chart.js-PolarAreaChart" name="/chart-js/polar-area-chart" />
       </el-tabs>
-      <div style="padding: 0px">
-        <NuxtPage />
-      </div>
-    </el-main>
+    </el-header>
+
+    <!-- Main Content with Routing Tabs -->
+    <!-- <el-main style="padding: 0"> -->
+
+    <div style="padding: 0px">
+      <NuxtPage />
+    </div>
+    <!-- </el-main> -->
+    <div class="nav-mobile-floating">
+      <el-dropdown @command="onMobileNav">
+        <el-button type="primary" size="large" class="floating-menu-btn">메뉴</el-button>
+        <template #dropdown>
+          <el-dropdown-menu>
+            <el-dropdown-item command="/">Home</el-dropdown-item>
+            <el-dropdown-item command="/repo/GithubRepoTree">GithubRepoTree</el-dropdown-item>
+            <el-dropdown-item command="/chart-js/stackbar-chart"
+              >Chart.js-StackBarChart</el-dropdown-item
+            >
+            <el-dropdown-item command="/chart-js/pie-chart">Chart.js-PieChart</el-dropdown-item>
+            <el-dropdown-item command="/chart-js/polar-area-chart"
+              >Chart.js-PolarAreaChart</el-dropdown-item
+            >
+          </el-dropdown-menu>
+        </template>
+      </el-dropdown>
+    </div>
   </el-container>
 </template>
 
@@ -52,6 +69,10 @@ function onTabClick(tab: any) {
   const currentQuery = route.query;
   router.push({ path: tab.props.name, query: currentQuery });
 }
+
+function onMobileNav(path: string) {
+  router.push({ path });
+}
 </script>
 
 <style scoped>
@@ -62,5 +83,29 @@ html,
 * {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue',
     Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', 'Nanum Gothic', 'Noto Sans KR', sans-serif !important;
+}
+/* 플로팅 모바일 메뉴 버튼 */
+.nav-mobile-floating {
+  display: none;
+}
+.floating-menu-btn {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 2000;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+  border-radius: 50px;
+  padding: 0 24px;
+}
+@media (max-width: 800px) {
+  .nav-mobile-floating {
+    display: block;
+  }
+}
+::v-deep(.el-header) {
+  height: auto !important;
+}
+::v-deep(.el-tabs__header) {
+  margin-bottom: 5px !important;
 }
 </style>

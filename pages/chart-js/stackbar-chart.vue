@@ -1,7 +1,6 @@
 <template>
-  <div style="padding: 32px">
-    <h2>Chart.js Stack Bar</h2>
-    <canvas ref="chartCanvas" style="height: 500px"></canvas>
+  <div style="width: 100%; height: 400px">
+    <canvas ref="chartCanvas"></canvas>
   </div>
 </template>
 
@@ -72,7 +71,8 @@ onMounted(async () => {
       ],
     },
     options: {
-      responsive: true,
+      responsive: true, // 브라우저 리사이즈 시 자동 크기 조정
+      maintainAspectRatio: false, // true면 비율 유지, false면 부모 요소에 맞춤
       plugins: {
         legend: { position: 'top' },
         title: { display: true, text: '부서별 업무 진행 상태' },

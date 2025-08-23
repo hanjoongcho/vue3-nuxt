@@ -20,7 +20,7 @@
               font-family="Arial"
               dy=".3em"
             >
-              N
+              🚀
             </text>
           </svg>
         </div>
