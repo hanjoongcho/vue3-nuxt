@@ -19,6 +19,7 @@
     <el-main style="padding: 0">
       <el-tabs v-model="activeTab" @tab-click="onTabClick">
         <el-tab-pane label="Home" name="/" />
+        <el-tab-pane label="GithubRepoTree" name="/repo/GithubRepoTree" />
         <el-tab-pane label="Sample 1" name="/sample/page1" />
         <el-tab-pane label="Sample 2" name="/sample/page2" />
         <el-tab-pane label="Sample 3" name="/sample/page3" />
