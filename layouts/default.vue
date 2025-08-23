@@ -63,17 +63,4 @@ html,
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue',
     Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', 'Nanum Gothic', 'Noto Sans KR', sans-serif !important;
 }
-
-.el-tabs__nav-wrap {
-  overflow-x: auto !important;
-  overflow-y: hidden;
-}
-
-.el-tabs__nav {
-  flex-wrap: nowrap !important;
-}
-
-.el-tabs__item {
-  white-space: nowrap; /* 탭 글자 줄바꿈 방지 */
-}
 </style>

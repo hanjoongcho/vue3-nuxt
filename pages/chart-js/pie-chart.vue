@@ -1,9 +1,7 @@
 <template>
-  <div style="padding: 32px">
-    <h2>Chart.js Pie</h2>
+  <div style="padding: 0px">
     <div style="display: flex; flex-wrap: wrap; gap: 32px">
       <div v-for="(team, idx) in teams" :key="team" style="flex: 1 1 250px; text-align: center">
-        <h3>{{ team }}</h3>
         <canvas :ref="(el) => (chartCanvases[idx] = el)" style="margin: 0 auto"></canvas>
       </div>
     </div>
@@ -12,6 +10,7 @@
 
 <script setup>
 import { ref, onMounted } from 'vue';
+import { chartDataLabelFont } from '@/utils/ChartUtils';
 
 const teams = ['기획팀', '개발팀', '디자인팀', '영업팀', '마케팅팀', '인사팀'];
 
@@ -55,8 +54,8 @@ onMounted(async () => {
               teamStatusData[idx].진행완료,
             ],
             backgroundColor: fillColors,
-            borderColor: borderColors,
-            borderWidth: 2,
+            // borderColor: borderColors,
+            borderWidth: 3,
           },
         ],
       },
@@ -68,12 +67,7 @@ onMounted(async () => {
           title: { display: true, text: '부서별 업무 진행 상태' },
           datalabels: {
             color: '#333333',
-            font: {
-              weight: 'italic',
-              size: 12,
-              family:
-                'system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Apple SD Gothic Neo, Malgun Gothic, Nanum Gothic, Noto Sans KR, sans-serif',
-            },
+            font: chartDataLabelFont,
             formatter: (value, ctx) => {
               const label = ctx.chart.data.labels[ctx.dataIndex];
               if (value === 0) {
