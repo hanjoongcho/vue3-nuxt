@@ -8,7 +8,7 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    "deploy:ghp": "git subtree push --prefix .output/public origin gh-pages"
+    "deploy": "npm run generate && git add .output/public -f && git commit -m \"chore: build\" && git subtree push --prefix .output/public origin gh-pages"
   },
   "dependencies": {
     "@kangc/v-md-editor": "^2.3.18",
