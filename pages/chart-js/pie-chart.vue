@@ -62,12 +62,18 @@ onMounted(async () => {
       },
       options: {
         responsive: true,
+        radius: '80%',
         plugins: {
           legend: { position: 'bottom' },
           title: { display: true, text: '부서별 업무 진행 상태' },
           datalabels: {
             color: '#333333',
-            font: { weight: 'normal', size: 12 },
+            font: {
+              weight: 'italic',
+              size: 12,
+              family:
+                'system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Apple SD Gothic Neo, Malgun Gothic, Nanum Gothic, Noto Sans KR, sans-serif',
+            },
             formatter: (value, ctx) => {
               const label = ctx.chart.data.labels[ctx.dataIndex];
               if (value === 0) {

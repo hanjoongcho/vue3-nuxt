@@ -332,7 +332,7 @@ const updateHighlightedNodes = () => {
   if (state.highlightedNodes.length > 0) {
     state.highlightSeq = 1;
     treeRef.value.setCurrentKey(state.highlightedNodes[state.highlightSeq - 1].path);
-    moveNodeFocus();
+    // moveNodeFocus();
   }
 };
 
@@ -402,7 +402,7 @@ const handleHighlightNext = () => {
   /* flex: 1 1 auto; */
   overflow-y: auto;
   /* padding: 3px 0 0 0; */
-  height: calc(100dvh - 96px);
+  height: calc(100dvh - 196px);
   box-sizing: border-box;
 }
 .mb-2 {

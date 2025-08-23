@@ -1,12 +1,6 @@
 <template>
   <el-container
-    style="
-      min-height: 100vh;
-      background: #f5f7fa;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    "
+    style="background: #f5f7fa; display: flex; align-items: center; justify-content: center"
   >
     <el-card
       class="material-welcome"
@@ -71,18 +65,5 @@
   color: #555;
   text-align: center;
   margin-bottom: 0.5rem;
-}
-@media (max-width: 600px) {
-  .material-welcome {
-    padding: 1.2rem 0.5rem 1.2rem 0.5rem;
-    font-size: 0.97rem;
-  }
-  .material-title {
-    font-size: 1.3rem;
-  }
-  .material-avatar {
-    width: 48px;
-    height: 48px;
-  }
 }
 </style>
