@@ -1,0 +1,1 @@
+const e={weight:"italic",size:12,family:"system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Apple SD Gothic Neo, Malgun Gothic, Nanum Gothic, Noto Sans KR, sans-serif"};export{e as c};
