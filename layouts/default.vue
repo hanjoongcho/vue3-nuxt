@@ -29,7 +29,22 @@
     <!-- </el-main> -->
     <div class="nav-mobile-floating">
       <el-dropdown @command="onMobileNav">
-        <el-button type="primary" size="large" class="floating-menu-btn">메뉴</el-button>
+        <el-button type="primary" size="large" class="floating-menu-btn circle-menu-btn">
+          <el-icon
+            style="
+              vertical-align: middle;
+              width: 38px;
+              height: 38px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+            "
+          >
+            <svg viewBox="0 0 38 38" width="38" height="38">
+              <path fill="currentColor" d="M6 10h26v3H6v-3zm0 8h26v3H6v-3zm0 8h26v3H6v-3z" />
+            </svg>
+          </el-icon>
+        </el-button>
         <template #dropdown>
           <el-dropdown-menu>
             <el-dropdown-item command="/">Home</el-dropdown-item>
@@ -65,14 +80,21 @@ watch(
 );
 
 function onTabClick(tab: any) {
-  // 현재 페이지의 쿼리 파라미터를 다음 페이지로 전달
-  const currentQuery = route.query;
-  router.push({ path: tab.props.name, query: currentQuery });
+  router.push(routePage(tab.props.name));
 }
 
 function onMobileNav(path: string) {
-  router.push({ path });
+  router.push(routePage(path));
 }
+
+const routePage = (path: string) => {
+  console.log(path);
+  // 현재 페이지의 쿼리 파라미터를 다음 페이지로 전달
+  return {
+    path: path,
+    query: route.query,
+  };
+};
 </script>
 
 <style scoped>
@@ -94,8 +116,19 @@ html,
   bottom: 24px;
   z-index: 2000;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
-  border-radius: 50px;
-  padding: 0 24px;
+  border-radius: 50%;
+  width: 56px;
+  height: 56px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.circle-menu-btn {
+  min-width: 56px;
+  min-height: 56px;
+  border-radius: 50%;
+  padding: 0;
 }
 @media (max-width: 800px) {
   .nav-mobile-floating {
