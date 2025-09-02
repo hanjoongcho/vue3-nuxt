@@ -13,6 +13,7 @@
       </div>
       <el-tabs v-model="activeTab" @tab-click="onTabClick">
         <el-tab-pane label="Home" name="/" />
+        <el-tab-pane label="Flexbox" name="/demo/flexbox" />
         <el-tab-pane label="GithubRepoTree" name="/repo/GithubRepoTree" />
         <el-tab-pane label="Chart.js-StackBarChart" name="/chart-js/stackbar-chart" />
         <el-tab-pane label="Chart.js-PieChart" name="/chart-js/pie-chart" />
