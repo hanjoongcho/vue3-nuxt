@@ -171,7 +171,7 @@
 
 <style scoped>
 .flex-demo {
-  max-width: 600px;
+  /* max-width: 600px; */
   margin: 32px auto;
   padding: 24px;
   background: #f9f9f9;
@@ -223,7 +223,7 @@
   padding: 18px 32px;
   border-radius: 8px;
   text-align: center;
-  flex: 0 1 120px; /* flex-grow | flex-shrink | flex-basis */
+  flex: 0 1 60px; /* flex-grow | flex-shrink | flex-basis */
   &.inner-flex-container {
     display: flex;
     align-items: center;
